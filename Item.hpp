@@ -8,41 +8,38 @@ enum class ItemColor
 {
     RED,
     BLUE,
-    YELLOW,
-    NONE 
+    YELLOW
 };
 
 inline std::string itemColorToString(ItemColor color)
 {
-    switch (color) {
-        case ItemColor::RED: return "RED";
-        case ItemColor::BLUE: return "BLUE";
-        case ItemColor::YELLOW: return "YELLO";
-        case ItemColor::NONE: return "UnKnown";
+    switch (color)
+    {
+        case ItemColor::RED: return "Red";
+        case ItemColor::BLUE: return "Blue";
+        case ItemColor::YELLOW: return "Yellow";
     }
-    return "UnKnown"; 
-}
 
+    return "Unknown";
+}
 
 class Item
 {
     public:
-
-        Item(std::string name, ItemColor color, int strength, std::string location);
-
+    
+        Item(std::string name, ItemColor color, int strength, std::string originalLocation);
+        
         std::string getName() const;
         ItemColor getColor() const;
         int getStrength() const;
-        std::string getLocation() const;
-
-        void displayInfo() const;
+        std::string getOriginalLocation() const;
 
     private:
 
-        std::string Name;      
-        ItemColor Color;      
-        int Strength;          
-        std::string Location;  
+        std::string name;
+        ItemColor color;
+        int strength;
+        std::string originalLocation;
 };
 
 #endif
